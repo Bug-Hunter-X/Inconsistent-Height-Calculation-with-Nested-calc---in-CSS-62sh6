@@ -1,0 +1,12 @@
+A better approach is to perform the calculations separately and then use the results in the CSS:
+
+```css
+.element {
+  width: calc(50% - 10px);
+  /* Pre-calculate the height */
+  --height-base: calc(100% - 20px);
+  height: calc(var(--height-base) / 2);
+}
+```
+
+This version pre-calculates the base height using a CSS custom property (`--height-base`), avoiding nested `calc()` and leading to a more consistent and predictable result across browsers.
