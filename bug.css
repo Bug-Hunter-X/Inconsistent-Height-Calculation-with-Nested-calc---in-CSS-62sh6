@@ -1,0 +1,10 @@
+The following CSS code snippet demonstrates an uncommon error related to the usage of the `calc()` function and nested calculations:
+
+```css
+.element {
+  width: calc(50% - 10px);
+  height: calc(calc(100% - 20px) / 2);
+}
+```
+
+The issue lies in the nested `calc()` function used to calculate the height. While seemingly correct, this can lead to unexpected behavior in some browsers due to parsing inconsistencies.  The inner `calc(100% - 20px)` is evaluated first, but the outer `calc()` might not correctly interpret the result as a percentage or a pixel value, potentially leading to incorrect rendering. 
